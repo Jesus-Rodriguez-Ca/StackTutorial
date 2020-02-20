@@ -19,6 +19,8 @@ Tutorials
 3. Link to tutorial on how to build a Hello World App on stack
 4. [Link to Repo](https://github.com/Jesus-Rodriguez-Ca/StackTutorial)
 
+[I'm an inline-style link](https://www.google.com) 
+
 --
 
 
