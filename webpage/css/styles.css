@@ -10,10 +10,12 @@ body {
 
 header {
     background: green;
+    padding: 5px;
+    text-align: center;
 }
 
 header p {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .wrapper {
@@ -37,10 +39,14 @@ nav li {
     width: 20%;
     font-size: 1.5em;
     border: 1px black solid;
+    border-radius: 5px;
+    background: darkblue;
 }
 
 nav a {
-    
+    text-decoration: none;
+    display: block;
+    color: whitesmoke;
 }
 
 main {
@@ -60,6 +66,8 @@ code {
     float: right;
     overflow: auto;
     white-space: nowrap;
+    height: 3.5em;
+    padding: 3px;
 }
 
 img {
@@ -67,6 +75,8 @@ img {
     display: inline-block;
     width: 60%;
     margin-left: 40%;
+    margin-top: 1em;
+    margin-bottom: 1em;
     border: 3px solid black;
 }
 
@@ -79,4 +89,16 @@ img {
 
 footer {
     background: green;
+}
+
+@media (max-width: 822px) {
+    header p {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    header p {
+        font-size: 1.6em;
+    }
 }
