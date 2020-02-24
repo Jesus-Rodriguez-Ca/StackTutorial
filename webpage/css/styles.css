@@ -47,6 +47,11 @@ nav li {
     background: darkblue;
 }
 
+nav li:hover {
+    background: red;
+    transition: .1s
+}
+
 nav a {
     text-decoration: none;
     display: block;
