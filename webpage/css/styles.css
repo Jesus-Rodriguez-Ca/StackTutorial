@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+h1, h2, h3, p, a {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
 body {
     background: grey;
 }
@@ -91,14 +95,32 @@ footer {
     background: green;
 }
 
+@media (min-width: 823px) {
+    header p {
+        font-size: 2.5em;
+    }
+    .small {
+        display: none;
+    }
+}
+
 @media (max-width: 822px) {
     header p {
         font-size: 2em;
+    }
+    .small {
+        display: none;
     }
 }
 
 @media (max-width: 600px) {
     header p {
-        font-size: 1.6em;
+        font-size: 2em;
+    }
+    .big {
+        display: none;
+    }
+    .small {
+        display: block;
     }
 }
