@@ -20,7 +20,7 @@
             
             <nav>
                 <ul>
-                    <li><a href="#step1">Step 1</a></li>
+                    <li><a href="#step1">Gcloud</a></li>
                     <li><a href="#step2">Step 2</a></li>
                     <li><a href="#step3">Step 3</a></li>
                     <li><a href="">Top</a></li>
@@ -28,9 +28,26 @@
             </nav>
             
             <main>
-                <h3 id="step1">Step 1</h3>
-                <p>Step details</p>
-                <code>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </code>
+                <h3 id="step1">Set up Ubuntu on Google Cloud</h3>
+                <ol>
+                <li><a href="https://cloud.google.com" alt="google cloud link">Click here</a> to visit the Google Cloud console page.</li>
+                <li>Create an account</li>
+                <li>On the bottom right look for the link called <em>Console</em>.</li>
+                <li>On the top nav bar, select <em>Project</em>.</li>
+                <li>In the nav bar on the left find <em>Compute Engine</em>.</li>
+                <li>Once you there select <em>VM Instance</em>.</li>
+                <li>Then <em>Create</em>.</li>
+                    <li>Name the Instance</li>
+<li>Plugin your “Region” and “Zone” (Oregon)</li>
+<li>Change the “Machine type” to the smallest one “f1-micro”</li>
+<li>For “Bootdisk” Use “Ubuntu 18.04 LTS” (Or 16.04 LTS?)</li>
+<li>Down at “Firewall” select “Allow HTTP Traffic” and “Allow HTTPS Traffic”</li>
+<li>Then hit “Create” and Wait</li>
+<li>Once its done loading check to see if ur instance is running by looking at the green dot with a white checkmark.</li>
+<li>Click “SSH” to the right of the instance that you want to use, keep in mind it will take some time to load.</li>
+                    <li>Continue to Node.js…</li>
+                </ol>
+                <img src="images/console.png" alt="google console image">
                 
                 <h3 id="step2">Step 2</h3>
                 <p>Step details</p>
