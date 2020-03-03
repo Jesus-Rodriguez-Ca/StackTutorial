@@ -21,8 +21,8 @@
             <nav>
                 <ul>
                     <li><a href="#step1">Gcloud</a></li>
-                    <li><a href="#step2">Step 2</a></li>
-                    <li><a href="#step3">Step 3</a></li>
+                    <li><a href="#step2">Node.js</a></li>
+                    <li><a href="#step3">Angular.js</a></li>
                     <li><a href="">Top</a></li>
                 </ul>
             </nav>
@@ -30,33 +30,37 @@
             <main>
                 <h3 id="step1">Set up Ubuntu on Google Cloud</h3>
                 <ol>
-                <li><a href="https://cloud.google.com" alt="google cloud link">Click here</a> to visit the Google Cloud console page.</li>
+                <li><a href="https://cloud.google.com" alt="google cloud link">Click here</a> to visit the Google Cloud console page</li>
                 <li>Create an account</li>
                 <li>On the bottom right look for the link called <em>Console</em>.</li>
-                <li>On the top nav bar, select <em>Project</em>.</li>
+                <li>On the top nav bar, select <em>Project</em></li>
                 <li>In the nav bar on the left find <em>Compute Engine</em>.</li>
-                <li>Once you there select <em>VM Instance</em>.</li>
-                <li>Then <em>Create</em>.</li>
-                    <li>Name the Instance</li>
-<li>Plugin your “Region” and “Zone” (Oregon)</li>
-<li>Change the “Machine type” to the smallest one “f1-micro”</li>
-<li>For “Bootdisk” Use “Ubuntu 18.04 LTS” (Or 16.04 LTS?)</li>
-<li>Down at “Firewall” select “Allow HTTP Traffic” and “Allow HTTPS Traffic”</li>
-<li>Then hit “Create” and Wait</li>
-<li>Once its done loading check to see if ur instance is running by looking at the green dot with a white checkmark.</li>
-<li>Click “SSH” to the right of the instance that you want to use, keep in mind it will take some time to load.</li>
-                    <li>Continue to Node.js…</li>
+                <li>Once you there select <em>VM Instance</em></li>
+                <li>Then <em>Create</em></li>
+                <li>Name the Instance</li>
+                <li>Select your <em>Region</em></li>
+                <li>Change the <em>Machine type</em> to <em>f1-micro</em></li>
+                <li>For <em>Bootdisk</em> click <em>Change</em> > select <em>Ubuntu</em> for OS and <em>Ubuntu 18.04 LTS</em> > Click <em>Select</em></li>
+                <li>For <em>Firewall</em> select <em>Allow HTTP Traffic</em> and <em>Allow HTTPS Traffic</em></li>
+                <li>Then hit <em>Create</em> and wait for the green circle with white checkmark to indicate your instance is running</li>
+                <li>Click <em>SSH</em> to the right of the instance that you want to use, keep in mind it will take some time to load</li>
+                <li>Continue to <a href="#step2">Node.js</a> to begin installing your stack on this cloud server</li>
                 </ol>
-                <img src="images/console.png" alt="google console image">
+                                
+                <h3 id="step2">Installing Node.js</h3>
+                <p>To install Node.js, paste the following commands then press 'Enter'</p>
+                <code>sudo apt-get update</code>
+                <code>sudo apt-get install -y curl apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_10.x && sudo bash setup-nodejs && sudo apt-get install -y nodejs build-essential</code>
                 
-                <h3 id="step2">Step 2</h3>
-                <p>Step details</p>
-                <code>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </code>
-                <img src="images/mean.jpg">
+                <h3 id="step3">Installing Angular.js</h3>
+                <p>Paste the following command then press 'Enter'</p>
+                <code>sudo -i npm install -g @angular/cli</code>
+                <p>Type “y” or “n” and press 'Enter' when asked to share data with Google (makes no difference for this tutorial)</p>
                 
-                <h3 id="step3">Step 3</h3>
-                <p>Step details</p>
-                <code>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </code>
+                <h3 id="step4">Installing Express</h3>
+                <p>Paste the following command then press 'Enter'</p>
+                <code>sudo -i npm install -g @angular/cli</code>
+                <p>Type “y” or “n” and press 'Enter' when asked to share data with Google (makes no difference for this tutorial)</p>
                 
             </main>
             
