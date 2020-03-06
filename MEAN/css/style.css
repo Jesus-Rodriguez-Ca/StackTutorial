@@ -1,0 +1,262 @@
+*, *::before, *::after {
+    box-sizing: border-box
+    
+}
+body{
+    display: flexbox;
+    background: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Arial, Helvetica ;
+    color: white; 
+    color:black;
+}
+    a{
+     text-align: center;
+     color: black;
+    }
+    
+
+/*Navigan Bar starts here*/ 
+
+header{
+    background: rgba(233, 27, 27, 0.9);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
+.nav-toggle {
+    display:none;
+}
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left:  1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    content: '';
+    position: absolute;
+}
+.nav-toggle-label span::before{
+    bottom: 7px;
+}
+.nav-toggle-label span::after{
+    top: 7px;
+}
+nav{
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: rgba(189, 23, 72, 0.9);
+    width: 100%;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+nav a{
+    color:white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out 150ms;
+}
+nav a:hover{
+    color: #000;
+}
+.nav-toggle:checked ~ nav{
+    transform: scale(1,1);
+}
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+/*Navigation bar ends here*/
+
+/*Main image*/
+img.desktop {
+    margin-top:85px;
+    width: 100%
+}
+/*Content*/
+h1{
+    text-align: center;
+    color:black;
+}
+h2{
+    text-align: center; 
+    color:black; 
+}
+h3{
+    text-align: center;
+    color:black;
+}
+H4{
+    text-align: center;
+    color: rgb(30, 190, 30);
+    font-size: 40px;
+    text-shadow: rgb(194, 49, 49);
+    text-decoration-color: lawngreen;
+}
+p{
+    text-align: center;
+
+}
+
+
+
+
+
+
+
+/*Media query starts here*/
+@media screen and (min-width: 800px){
+    .nav-toggle-label{
+        display: none;
+    }
+    header{
+        display: grid;
+        grid-template-columns: 50px auto minmax(600px, 3fr) .3fr;
+    }
+    .logo{
+        grid-column: 2 / 3;
+    }
+    nav{
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav ul{
+        display: flex;
+        justify-content: flex-end; 
+    }
+    nav li{
+        margin-left: 3em;
+        margin-bottom: 0;
+            
+    }
+    
+    nav a {
+        opacity: 1;
+        position: relative;
+    }
+}
+nav a::before{
+    content: "";
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: 1em;
+    left:0;
+    right: 0;
+    transform: scale(0,1);
+    transform-origin: left;
+    transition: transform ease-in-out 250ms;
+}
+nav a:hover::before{
+    transform: scale(1,.35);
+}
+/*nav bar ends here*/
+
+
+
+
+p{
+  font-size: 20px 
+}
+ol {
+    display: inline-table;
+    justify-content: left;
+    position: relative;
+    left: 25px; 
+    margin: auto ;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 90%;
+}
+ol li{
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    margin:5px 0;
+    transition: .5s;
+    width: auto;
+}
+ol li:nth-child
+{
+    background: rgba(79, 235, 58, 0.3);
+    padding-bottom: 5px;
+}
+ol li:hover{
+    transform:scale(1.02);
+    background: rgba(79, 235, 58, 0.3);
+}
+code{
+    text-align: center;
+    font-size: 20px;
+    }
+footer{
+    width: 100%;
+    background: black;
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+table{
+    
+    box-sizing: border-box;
+    width: 50%;
+    padding:5px;
+
+}
+ th{
+    text-align-last: center;
+}
+
+
+img.github{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:30%;
+    margin-bottom: 60px;
+}
+img.googledoc{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:30%;
+    margin-bottom: 60px;
+}
+main.tutorial{
+    display: flex;
+    flex-direction: row;
+}
