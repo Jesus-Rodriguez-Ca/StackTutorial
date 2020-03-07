@@ -7,7 +7,8 @@
   <title>G2: MEAN tutorial</title>
 
   <link rel="stylesheet" href="css/styles.css">
-
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	
 </head>
     
     <body>
@@ -21,14 +22,17 @@
             <nav>
                 <ul>
                     <li><a href="#step1">Gcloud</a></li>
-                    <li><a href="#step2">Node.js</a></li>
-                    <li><a href="#step3">Angular.js</a></li>
+					<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Installation</a>
+						<div class="dropdown-content"><a href="#step2">Node.js</a>
+						<a href="#step3">Angular.js</a>
+						<a href="#step4">Express</a>
+						<a href="#step5">MongoDB</a></div></li>
                     <li><a href="">Top</a></li>
                 </ul>
             </nav>
             
             <main>
-                <h3 id="step1">Set up Ubuntu on Google Cloud</h3>
+                <h3 class="anchor" id="step1">Set up Ubuntu on Google Cloud</h3>
                 <ol>
                 <li><a href="https://cloud.google.com" alt="google cloud link">Click here</a> to visit the Google Cloud console page</li>
                 <li>Create an account</li>
@@ -37,31 +41,82 @@
                 <li>In the nav bar on the left find <em>Compute Engine</em>.</li>
                 <li>Once you there select <em>VM Instance</em></li>
                 <li>Then <em>Create</em></li>
-                <li>Name the Instance</li>
+                <li>Name the instance</li>
                 <li>Select your <em>Region</em></li>
                 <li>Change the <em>Machine type</em> to <em>f1-micro</em></li>
-                <li>For <em>Bootdisk</em> click <em>Change</em> > select <em>Ubuntu</em> for OS and <em>Ubuntu 18.04 LTS</em> > Click <em>Select</em></li>
+                <li>For <em>Bootdisk</em> click <em>Change</em> &rsaquo; select <em>Ubuntu</em> for OS and <em>Ubuntu 18.04 LTS</em> &rsaquo; Click <em>Select</em></li>
                 <li>For <em>Firewall</em> select <em>Allow HTTP Traffic</em> and <em>Allow HTTPS Traffic</em></li>
                 <li>Then hit <em>Create</em> and wait for the green circle with white checkmark to indicate your instance is running</li>
                 <li>Click <em>SSH</em> to the right of the instance that you want to use, keep in mind it will take some time to load</li>
                 <li>Continue to <a href="#step2">Node.js</a> to begin installing your stack on this cloud server</li>
                 </ol>
                                 
-                <h3 id="step2">Installing Node.js</h3>
-                <p>To install Node.js, paste the following commands then press 'Enter'</p>
-                <code>sudo apt-get update</code>
-                <code>sudo apt-get install -y curl apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_10.x && sudo bash setup-nodejs && sudo apt-get install -y nodejs build-essential</code>
+				<h2>Stack Installation</h2>
+				
+                <h3 class="anchor" id="step2">Installing Node.js</h3>
+                <ol><li>To install Node.js, paste the following commands then press 'Enter', starting with;</li>
+                <pre><code>sudo apt-get update</code></pre>
+					<li>Then use this command;</li>
+                <pre><code>sudo apt-get install -y curl apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_10.x && sudo bash setup-nodejs && sudo apt-get install -y nodejs build-essential</code></pre>
+                </ol>
+				
+                <h3 class="anchor" id="step3">Installing Angular.js</h3>
+                <ol><li>Paste the following command then press 'Enter'</li>
+                <pre><code>sudo -i npm install -g @angular/cli</code></pre>
+                <li>Type 'Y' or 'N' and press 'Enter' when asked to share data with Google (makes no difference for this tutorial)</li>
+				</ol>
                 
-                <h3 id="step3">Installing Angular.js</h3>
-                <p>Paste the following command then press 'Enter'</p>
-                <code>sudo -i npm install -g @angular/cli</code>
-                <p>Type “y” or “n” and press 'Enter' when asked to share data with Google (makes no difference for this tutorial)</p>
+                <h3 class="anchor" id="step4">Installing Express</h3>
+                <ol><li>Create a directory called “mean-stack”</li>
+                <pre><code>mkdir mean-stack</code></pre>
+					<li>Then change the directory to helloworld</li>
+					<pre><code>cd mean-stack</code></pre>
+                <li>After that, initialize your node files and your package.json</li>
+					<pre><code>npm init</code></pre>
+					<li>Press 'Enter' to skip each of the following 3 prompts; package name, version, and description</li>
+					<li>When asked for the “entry point” enter the following;</li>
+					<pre><code>app.js</code></pre>
+					<li>Press 'Enter' to skip each of the folling 6 prompts; test command, git repository, keywords, author, license (ISC), Is this OK? (yes)</li>
+					<li>Run express.js in your project and directory</li>
+					<pre><code>npm install express --save</code></pre>
+					<li>Finally, open the nano text editor:</li>
+					<pre><code>nano app.js</code></pre>
+					<li>Once you’re in nano copy and paste this below</li>
+					<code class="prettyprint">
+						var express = require('express');<br>
+						var app = express();<br>
+						app.get('/', function (req, res) {<br>
+						res.send('Hello World!');<br>
+						});<br>
+						app.listen(3000, function () {<br>
+						console.log('Example app listening on port 3000!');<br>
+						});
+					</code>
+					<li>To exit the nano, hit CTRL+X, then press 'Y' and hit 'Enter'</li>
+				</ol>
                 
-                <h3 id="step4">Installing Express</h3>
-                <p>Paste the following command then press 'Enter'</p>
-                <code>sudo -i npm install -g @angular/cli</code>
-                <p>Type “y” or “n” and press 'Enter' when asked to share data with Google (makes no difference for this tutorial)</p>
-                
+				<h3 class="anchor" id="step5">Installing MongoDB</h3>
+				<ol><li>Install MongoDB packages</li>
+				<pre><code>sudo apt install -y mongodb</code></pre>
+				<li>Run MongoDB</li>
+					<pre><code>sudo systemctl start mongodb</code></pre>
+					<li>To begin using mongo shell</li>
+					<pre><code>mongo</code></pre>
+					<li>To create and switch to a new collection named “mean-stack-db”:</li>
+					<pre><code>use mean-stack-db</code></pre>
+					<li>To populate the collection you use the function</li>
+					<pre><code>db.inventory.insertMany();</code></pre>
+					<li>Inside the function you must enter data in the JSON format, for instance;</li>
+					<code class="prettyprint">db.inventory.insertMany( [<br>
+   { "item": "journal", "qty": 25, "size": { "h": 14, "w": 21, "uom": "cm" }, "status": "A" },<br>
+   { "item": "notebook", "qty": 50, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "A" },<br>
+   { "item": "paper", "qty": 100, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "D" },<br>
+   { "item": "planner", "qty": 75, "size": { "h": 22.85, "w": 30, "uom": "cm" }, "status": "D" },<br>
+   { "item": "postcard", "qty": 45, "size": { "h": 10, "w": 15.25, "uom": "cm" }, "status": "A" }<br>
+]);</code>
+					<li>Finally you can search stuff inside your database by creating queries. For instance;</li>
+					<pre><code>db.inventory.find( { status: "D" } )</code></pre>
+				</ol>
             </main>
             
             <aside>
