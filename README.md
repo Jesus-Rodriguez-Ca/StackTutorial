@@ -4,13 +4,16 @@ Tutorial to use MEAN stack
 
 #Collaborators
 
-Joseph VanSandt - jvansandt6688@gmail.com
-Rodrigo Palop - ropalop@gmail.com
-Julie Suong - julie.suong@gmail.com
-Jesus Rodriguez - manuelrodriguezc29@gmail.com
-Michael Hansen - mmhansen@gmail.com
-Barbara Pronsato - barbara.pronsato@gmail.com 
-Sulekha Abdullahi - 
+<ul>
+     <li>Joseph VanSandt - jvansandt6688@gmail.com</li>
+     <li>Rodrigo Palop - ropalop@gmail.com</li>
+     <li>Julie Suong - julie.suong@gmail.com</li>
+     <li>Jesus Rodriguez - manuelrodriguezc29@gmail.com</li>
+     <li>Michael Hansen - mmhansen@gmail.com</li>
+     <li>Barbara Pronsato - barbara.pronsato@gmail.com</li>
+    <li>Sulekha Abdullahi - sulekha871@gmail.com</li>
+    <li>Abdirizak Ali (Zak) -  abdirizakali1234@gmail.com </li>
+</ul>
 
 Tutorials
 
