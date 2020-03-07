@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
-h1, h2, h3, p, a {
-    font-family: Georgia, "Times New Roman", serif;
+@font-face {
+	font-family: 'retro';
+	src: url('../fonts/PressStart2P-vaV7.ttf');
+}
+h1, h2, h3, p, nav a {
+    /*font-family: Georgia, "Times New Roman", serif;*/
+	font-family: retro;
 }
 h2 {
 	margin: 10px 0;
@@ -15,17 +20,23 @@ h3 {
 }
 
 body {
-    background: grey;
+    background: url('../images/stars.png');
+	background-position: center;
+	background-repeat: repeat;
 }
 
 header {
-    background: #840002;
+    background: black;
     padding: 5px;
     text-align: center;
+	height: 80px;
+	line-height: 80px;
 }
 
 header p {
-    font-size: 2.5em;
+    font-size: 2em;
+	color: white;
+	text-transform: uppercase;
 }
 
 .wrapper {
@@ -34,28 +45,26 @@ header p {
 
 nav {
     width: 100%;
-    background: orange;
+    background: url('../images/invaderpattern2.jpg');
+	background-size: 200px;
     position: sticky;
     top: 0;
     text-align: center;
 }
-
 nav ul {
     
 }
 
 nav li {
     display: inline-block;
-    width: 20%;
     font-size: 1.5em;
     border: 1px black solid;
     border-radius: 5px;
-    background: darkblue;
+    background: #22C82A;
 }
 
 nav li:hover {
-    background: red;
-    transition: .1s
+    background: #7300A6;
 }
 
 nav a {
@@ -72,7 +81,7 @@ nav li a, .dropbtn {
   text-decoration: none;
 }
 nav li a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #7300A6;
 }
 nav li.dropdown {
   display: inline-block;
@@ -92,7 +101,9 @@ nav li.dropdown {
   display: block;
   text-align: left;
 }
-.dropdown-content a:hover {background-color: #f1f1f1;
+.dropdown-content a:hover {
+  background-color: #7300A6;
+  color: white;
 }
 .dropdown:hover .dropdown-content {
   display: block;
@@ -175,18 +186,23 @@ footer {
     background: green;
 }
 
-@media (min-width: 823px) {
+.gif {
+	height: 40px;
+	width: 40px;
+	display: inline;
+}
+
+@media (min-width: 923px) {
     header p {
-        font-size: 2.5em;
     }
     .small {
         display: none;
     }
 }
 
-@media (max-width: 822px) {
+@media (max-width: 922px) {
     header p {
-        font-size: 2em;
+        font-size: 1.5em;
     }
     .small {
         display: none;
@@ -196,7 +212,7 @@ footer {
 	}
 }
 
-@media (max-width: 630px) {
+@media (max-width: 700px) {
     header p {
         font-size: 2em;
     }
