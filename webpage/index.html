@@ -18,7 +18,7 @@
         <div class="wrapper">
             
             <header id="top">
-                <p class="big">Group 2: MEAN stack tutorial <!--assignment--></p>
+				<img class="big" src="images/title.png" alt="title">
                 <p class="small">MEAN stack</p>
             </header>
             
@@ -31,7 +31,7 @@
 						<a href="#step3">Angular.js</a>
 						<a href="#step4">Express</a>
 						<a href="#step5">MongoDB</a></div></li>
-                    <li><a href="#top"><div class="select">&#9658;</div>Top</a></li>
+                    <li><a href="#app"><div class="select">&#9658;</div>Sample App</a></li>
                 </ul>
             </nav>
             
@@ -112,14 +112,324 @@
 					<pre><code>db.inventory.insertMany();</code></pre>
 					<li>Inside the function you must enter data in the JSON format, for instance;</li>
 					<code class="prettyprint">db.inventory.insertMany( [<br>
-   { "item": "journal", "qty": 25, "size": { "h": 14, "w": 21, "uom": "cm" }, "status": "A" },<br>
-   { "item": "notebook", "qty": 50, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "A" },<br>
-   { "item": "paper", "qty": 100, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "D" },<br>
-   { "item": "planner", "qty": 75, "size": { "h": 22.85, "w": 30, "uom": "cm" }, "status": "D" },<br>
-   { "item": "postcard", "qty": 45, "size": { "h": 10, "w": 15.25, "uom": "cm" }, "status": "A" }<br>
+{ "item": "journal", "qty": 25, "size": { "h": 14, "w": 21, "uom": "cm" }, "status": "A" },<br>
+{ "item": "notebook", "qty": 50, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "A" },<br>
+{ "item": "paper", "qty": 100, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "D" },<br>
+{ "item": "planner", "qty": 75, "size": { "h": 22.85, "w": 30, "uom": "cm" }, "status": "D" },<br>
+{ "item": "postcard", "qty": 45, "size": { "h": 10, "w": 15.25, "uom": "cm" }, "status": "A" }<br>
 ]);</code>
 					<li>Finally you can search stuff inside your database by creating queries. For instance;</li>
 					<pre><code>db.inventory.find( { status: "D" } )</code></pre>
+				</ol>
+				
+				<h3>Firewall Rules</h3>
+				<ol>
+				<li>From the command line enter</li>
+				<pre><code>sudo iptables -I INPUT -p tcp --dport 3000 -j ACCEPT</code></pre></ol>
+				<h4>OR</h4>
+				<ol>
+				<li>Back in the Google Cloud console search <em>Firewall</em> in the search bar</li>
+				<li>Select <em>Firewall rules</em> from the results</li>
+				<li>Click on <em>Create Firewall Rule</em></li>
+					<ul>
+					<li><strong>Name:</strong> <em>firewall-port-3000</em></li>
+					<li><strong>Description:</strong> <em>Open port 3000</em></li>
+					<li><strong>Targets:</strong> <em>All instance in the network</em></li>
+					<li><strong>Source IP ranges:</strong> <em>0.0.0.0/0</em></li>
+					<li><strong>Protocols and ports:</strong> Click on checkbox: <em>tcp</em> and in entry box type: <em>3000</em></li>
+					</ul>
+				<li>Click <em>CREATE</em> button</li></ol>
+				<h3>Running the Server</h3>
+				<ol>
+				<li>Back in the GNU Bash Shell run the server with the following command: (if still in the mongo db type exit</li>
+				<pre><code>node app.js</code></pre>
+				<li>The console should say the app is "listening on port 3000"</li>
+				<li>Back in the Google Cloud console go to 
+				<em>Compute Engine</em> </li>
+				<li>Click on <em>VM instances</em></li>
+				<li>Type the External IP address into the URL bar, removing the “s” from “https” and adding “:3000” to the end:</li>
+					<ul><li><strong>Example:</strong> http://34.82.213.84:3000</li></ul>
+				</ol>
+				
+				<h2>Install a Sample Application</h2>
+				<h3 class="anchor" id="app">Search Bar App</h3>
+				<ol>
+				<li>Go back to the VM shell</li>
+				<li>Go to the working directory (mean-stack)</li>
+					<pre><code>cd</code></pre>
+				<li>Next you will be using the same nano command from before to create and edit files</li>
+				<li>Edit the <em>app.js</em> file inside the working directory</li>
+					<pre><code>nano app.js</code></pre>
+					<ol>
+				<li>Inside the editor, delete everything using the 'DEL' key.</li>
+				<li>Copy and paste the below code into the command shell</li>
+					<code class="prettyprint">// app.js<br>
+					<br>
+					// modules =================================================<br>
+					var express        = require('express');<br>
+					var app            = express();<br>
+					var bodyParser     = require('body-parser');<br>
+					<br>
+					// configuration ===========================================<br>
+					<br>
+					<br>
+					// set our port<br>
+					var port = process.env.PORT || 3000;<br>
+					<br>
+					// set static files location<br>
+					app.use(express.static(__dirname + '/views'));<br>
+					<br>
+					// routes ==================================================<br>
+					require('./routes')(app); // configure our routes<br>
+					<br>
+					// start app ===============================================<br>
+					// startup our app at port 3000<br>
+					app.listen(port);<br>
+					<br>
+					// shoutout to the user<br>
+					console.log('Magic happens on port ' + port + '!');<br>
+					<br>
+					// expose app<br>
+					exports = module.exports = app;<br>
+					</code>
+				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+					</ol>
+				<li>Create a file called routes.js inside the working directory:</li>
+					<pre><code>nano routes.js</code></pre>
+				<li>Copy and paste the below code into the command shell</li>
+					<code class="prettyprint">
+					// routes.js<br>
+					<br>
+					module.exports = function(app) {<br>
+					app.get('*', function(req, res) {<br>
+					res.sendfile('./views/index.html');<br>
+					});<br>
+					};
+					</code>
+				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+					
+				<li>Create a subdirectory for your files</li>
+					<pre><code>mkdir views</code></pre>
+				<li>Navigate to the subdirectory</li>
+					<pre><code>cd views</code></pre>
+				<li>Create an index page within your new directory</li>
+					<pre><code>nano index.html</code></pre>
+				<li>Copy and paste the below code into the command shell</li>
+					<code class="prettyprint">
+					&lt;!-- views/index.html --&gt;<br>
+					<br>
+					&lt;!doctype html&gt;<br>
+					&lt;html lang="en"&gt;<br>
+					&lt;head&gt;<br>
+					&lt;meta charset="UTF-8"&gt;<br>
+					&lt;link rel="stylesheet" href="css/style.css"&gt;<br>
+					&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"&gt;<br>
+					<br>
+					&lt;title&gt;MEAN Stack Web Application&lt;/title&gt;<br>
+					&lt;/head&gt;<br>
+					&lt;body&gt;<br>
+					<br>
+					&lt;main&gt;<br>
+					&lt;div class="srch_wrpr"&gt;<br>
+					&lt;input type="checkbox" name="" class="checkbox"&gt;<br>
+					&lt;div class="srch_sb_cnt"&gt;<br>
+					&lt;input type="text" name="text_bar" id="" class="sech_txt_inpt" placeholder="Search the database..."&gt;<br>
+					&lt;button class="srch_btn"&gt;<br>
+					&lt;i class="fa fa-search" aria-hidden="true"&gt;&lt;/i&gt;<br>
+					&lt;/button&gt;<br>
+					&lt;/div&gt;<br>
+					&lt;/div&gt;<br>
+					&lt;/main&gt;<br>
+					<br>
+					&lt;/body&gt;<br>
+					&lt;/html&gt;<br>
+					</code>
+					
+				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+
+				<li>Create another subdirectory for css styling</li>
+					<pre><code>mkdir css</code></pre>
+				<li>Navigate to the new css subdirectory</li>
+					<pre><code>cd css</code></pre>
+				<li>Create the css file inside that subdirectory</li>
+					<pre><code>nano style.css</code></pre>
+				<li>Copy and paste the below code into the command shell</li>
+					<code class="prettyprint">
+					/* views/css/style.css */<br>
+<br>
+					@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900');<br>
+					@import url('https://fonts.googleapis.com/css?family=Playball');<br>
+					* {<br>
+					box-sizing: border-box;<br>
+					}<br>
+					body {<br>
+					background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);<br>
+					}<br>
+					main {<br>
+					position: absolute;<br>
+					top: 50%;<br>
+					left: 50%;<br>
+					transform: translate(-50%, -50%);<br>
+					z-index: 1;<br>
+					}<br>
+					main:before {<br>
+					content: 'MongoDB Search Engine';<br>
+					font-family: 'Lato', sans-serif;<br>
+					position: absolute;<br>
+					top: -70px;<br>
+					left: 50%;<br>
+					color: rgba(0, 0, 0, 0.8);<br>
+					font-size: 26px;<br>
+					font-weight: 700;<br>
+					letter-spacing: 3px;<br>
+					transform: translateX(-50%);<br>
+					white-space: nowrap;<br>
+					pointer-events: none;<br>
+					color: #fff;<br>
+					text-shadow: hoff voff blur #000;<br>
+					}<br>
+					main:after {<br>
+					content: 'Salman Raza';<br>
+					font-family: 'Playball', cursive;<br>
+					position: absolute;<br>
+					bottom: -90px;<br>
+					left: 50%;<br>
+					color: rgba(0, 0, 0, 0.02);<br>
+					font-size: 150px;<br>
+					line-height: 140px;<br>
+					white-space: nowrap;<br>
+					text-transform: lowercase;<br>
+					transform: translateX(-50%);<br>
+					pointer-events: none;<br>
+					z-index: -1;<br>
+					}<br>
+					.srch_wrpr {<br>
+					width: 400px;<br>
+					max-width: 400px;<br>
+					height: 70px;<br>
+					position: relative;<br>
+					z-index: 1;<br>
+					}<br>
+					.srch_sb_cnt {<br>
+					width: 70px;<br>
+					height: 70px;<br>
+					background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);<br>
+					background-color: transparent;<br>
+					position: absolute;<br>
+					top: 50%;<br>
+					left: 50%;<br>
+					transform: translate(-50%, -50%);<br>
+					overflow: hidden;<br>
+					transition: all 0.4s ease-in-out 0s;<br>
+					z-index: 0;<br>
+					border-radius: 5px;<br>
+					}<br>
+					.sech_txt_inpt {<br>
+					opacity: 0;<br>
+					height: 50px;<br>
+					left: 10px;<br>
+					border-radius: 30px;<br>
+					border: 0;<br>
+					width: 94%;<br>
+					padding: 0 60px 0 15px;<br>
+					background-color: transparent;<br>
+					color: #333;<br>
+					font-size: 15px;<br>
+					transition: all 0.4s ease-in-out 0s;<br>
+					}<br>
+					.sech_txt_inpt:focus {<br>
+					letter-spacing: 2px;<br>
+					}<br>
+					.sech_txt_inpt:focus,<br>
+					.srch_btn:focus {<br>
+					outline: none;<br>
+					}<br>
+					.sech_txt_inpt,<br>
+					.srch_btn {<br>
+					position: absolute;<br>
+					z-index: 1;<br>
+					top: 50%;<br>
+					transform: translateY(-50%);<br>
+					}<br>
+					.srch_btn {<br>
+					width: 70px;<br>
+					height: 70px;<br>
+					right: 0;<br>
+					background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);<br>
+					background-color: transparent;<br>
+					border: 0;<br>
+					transition: all 0.4s ease-in-out 0s;<br>
+					font-size: 26px;<br>
+					cursor: pointer;<br>
+					color: #545454;<br>
+					}<br>
+					.srch_btn:after {<br>
+					position: absolute;<br>
+					content: '\f00d';<br>
+					font-family: fontAwesome;<br>
+					top: 50%;<br>
+					transform: translateY(-50%) rotate(0deg);<br>
+					right: 10px;<br>
+					height: 30px;<br>
+					width: 30px;<br>
+					font-size: 28px;<br>
+					z-index: -1;<br>
+					visibility: hidden;<br>
+					}<br>
+					input.checkbox {<br>
+					position: absolute;<br>
+					z-index: 1;<br>
+					width: 70px;<br>
+					height: 70px;<br>
+					opacity: 0.0;<br>
+					right: 30%;<br>
+					top: 50%;<br>
+					transform: translate(-50%, -50%);<br>
+					transition: all 0.4s ease-in-out 0s;<br>
+					cursor: pointer;<br>
+					}<br>
+					input.checkbox:checked {<br>
+					width: 30px;<br>
+					height: 30px;<br>
+					right: -14%;<br>
+					transform: translate(-50%, -60%);<br>
+					}<br>
+					input.checkbox:checked ~ .srch_sb_cnt {<br>
+					width: 100%;<br>
+					border-radius: 40px;<br>
+					background-color: #333;<br>
+					overflow: visible;<br>
+					}<br>
+					input.checkbox:checked ~ .srch_sb_cnt .srch_btn {<br>
+					width: 50px;<br>
+					height: 50px;<br>
+					right: 10px;<br>
+					border-radius: 100%;<br>
+					font-size: 20px;<br>
+					background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);<br>
+					color: #fff;<br>
+					text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);<br>
+					}<br>
+					input.checkbox:checked ~ .srch_sb_cnt .sech_txt_inpt {<br>
+					opacity: 1;<br>
+					}<br>
+					input.checkbox:checked ~ .srch_sb_cnt .srch_btn:after {<br>
+					transform: translateY(-50%) rotate(90deg);<br>
+					right: -50px;<br>
+					visibility: visible;<br>
+					transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);<br>
+					transition-delay: 0.5s;<br>
+					color: white;<br>
+					}<br>
+
+					</code>
+				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+
+				<li>Move up two directories to your main folder</li>
+					<pre><code>cd ../..</code></pre>
+				<li>Launch the server</li>
+					<pre><code>node app.js</code></pre>
+				<li>With this you will have a search bar app in your web server that you can play around with. Enjoy!</li>
 				</ol>
             </main>
             
