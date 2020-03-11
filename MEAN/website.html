@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>MEAN Stack</title>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://kit.fontawesome.com/796ef3a32a.js" crossorigin="anonymous"></script>
+  
+ </head>
+ <body>
+    <header>
+     <h1 class="logo">MEAN STACK</h1>
+       <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav> 
+            <ul>
+                <li><a href="index.html"  ><i class="fas fa-home"></i>Home</a></li>                     
+                <li><a href="app.html"><i class="fas fa-laptop-code"></i>Google Doc</a></li>
+                <li><a href="website.html" class="active"><i class="fas fa-laptop"></i>Tutorial</a></li>
+                <li><a href="github.html"><i class="fab fa-github"></i>github</a></li>         
+            </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+        </label>
+     </header>
+     
+    
+        
+          <img class="desktop" src="images/Mean-stack.jpg" />
+        
+
+      <H2>How to create a web app with MEAN stack.</H2>
+      <h2>Step 1</h2>
+      
+      <h3 id="step1">Set up Ubuntu on Google Cloud</h3>
+      <main class="tutorial">
+        <div class="list">
+    <ol>
+      <li> * Visit the Google Cloud console page. *</li>
+      <li class="1"> Create an account</li>
+      <li class="2"> On the bottom right look for the link called &#160; <strong>Console</strong>.</li>
+      <li class="3"> On the top nav bar, select &#160; <strong> Project</strong>.</li>
+      <li class="4"> In the nav bar on the left find <em> Compute Engine</em>.</li>
+      <li class="5"> Once you there select&#160; <strong>VM Instance</strong>.</li>
+      <li class="6"> Then &#160; <strong>Create</strong>.</li>
+      <li class="7"> Name the Instance</li>
+      <li class="8"> Plugin your “Region” and “Zone” (Oregon)</li>
+      <li class="9"> Change the “Machine type” to the smallest one “f1-micro”</li>
+      <li class="10"> For “Bootdisk” Use “Ubuntu 18.04 LTS” </li>
+      <li class="11"> Down at “Firewall” select “Allow HTTP Traffic” and “Allow HTTPS Traffic”</li>
+      <li class="12"> Then hit “Create” and Wait</li>
+      <li class="13"> Once its done loading check to see if ur instance is running by looking at the green dot with a white checkmark.</li>
+      <li class="14"> Click “SSH” to the right of the instance that you want to use, keep in mind it will take some time to load.</li>
+      <li class="15"> Continue to Node.js. </li>
+    </ol>
+  </div>
+  
+      <img src="images/vmset.png">
+  
+  </main>
+      <h2>Step 2</h2>
+      <h3>Software</h3>
+      <div class="step2">
+      <ol>
+      <li> Once the Command Prompt opens you’ll need to install&#160;<strong>Node.js</strong>, in the command line Paste these commands:</li>
+        <code>&#160;-sudo apt-get update</code> <br>
+        <br>
+        <code>&#160;- sudo apt-get install -y curl apt-transport-https ca-certificates && curl --fail -ssL -o <br>
+          &#160;- setup-nodejs https://deb.nodesource.com/setup_10.x && <br>&#160;- sudo bash setup-nodejs
+             && <br>&#160;- sudo apt-get install -y nodejs build-essential</code><br>
+      <li> To install <strong>Angular.js</strong> paste this into the command line. </li>
+        <code>&#160;- sudo -i npm install -g @angular/cli</code>
+       <li>Type “y” or “n” and hit enter when asked to share data with Google (makes no difference for this tutorial) </li>
+      <li>To install Express.js create a directory called “mean-stack”:</li>
+        <code>&#160;- mkdir mean-stack</code>
+       <li>Then change the directory to helloworld.</li>
+        <code>&#160;- cd mean-stack</code>
+       <li>After that, initialize your node files and your package.json. </li>
+        <code>&#160;- npm init</code>
+       <li>On first prompt (package name): press Enter, on second prompt (version): press Enter, on third prompt (description): press, Enter.</li> 
+       <li> When asked for the “entry point” enter: app.js </li>
+       <li> When asked for test command: press enter. </li>
+       <li>When asked for git repository: press enter. </li>
+       <li>Keywords: press enter </li>
+       <li>Author: press enter</li>
+       <li>License (ISC): press enter</li>
+       <li>Is this OK? (yes): press enter</li>
+       <img class="init" src="images/npm init.png">
+       <li>Run express.js in your project and directory</li>
+          <code>&#160;- npm install express --save</code>
+       <li>Finally, open the nano text editor:</li>
+        <code>&#160;- nano app.js</code>
+       <li>Once you’re in nano copy and paste this below</li>
+        <code>var express = require (&#146;express&#146;);<br>
+                    var app = express();<br>
+                    app.get(&#146;/&#146;, function(req, res)&#160;{<br>
+                    res.send(&#146;Hello world!&#146;);<br>
+                    });<br>
+                    app.listen(3000, function () {<br>
+                      console.log(&#146;Example app listening on port 3000!&#146;);<br>
+                    });
+        </code>
+        <li>To exit the nano <strong>CTRL+X</strong>, then press y and enter</li>
+        <li>Install <strong>MongoDB</strong> packages</li>
+          <code>&#160;- sudo apt install -y mongodb</code>
+        <li>Run MongoDB</li>
+          <code>&#160;- sudo systemctl start mongodb</code>
+        <li>To begin using mongo shell</li>
+          <code>&#160;- mongo</code>
+        <li> To create and switch to a new collection named &#34;mean-stack-db&#34;:</li>
+        <li>Install <strong>MongoDB</strong> packages</li>
+        <code>&#160;- db.inventory.insertMany();</code>
+        <li>Inside the function you must enter data in the <strong>JSON</strong> format, for instance:</li>
+        <img class="json" src="images/json.png">
+        <li>Finally you can search stuff inside your database by creating queries. For instance:</li>
+         <code>&#160;- db.inventory.find( { status: &#34;D&#34;} </code>
+        <img class="inventory" src="images/inventory.png">
+        </ol>
+      </div>
+      <h2>Step 3</h2>
+      <h3>Firewall Rule</h3>
+      <div class="step3">
+      <ol>
+        <li>From command line:</li>
+        <code>&#160;- sudo iptables -I INPUT -p tcp --dport 3000 -j ACCEPT</code>
+        <li>or</li>
+        <li>Back in Google Cloud Platform, in the search bar search for: Firewall </li>
+        <li>From the results select: Firewall rules</li>
+        <li>Click on &#34;<strong>CREATE FIREWALL RULE</strong>&#34;</li>
+        <img class="firewall" src="images/firewall.png">
+        <li>Name: <strong>firewall-port-3000</strong></li>
+        <li>Description: <strong>Open port 3000</strong></li>
+        <li>Targets: <strong>All instance in the network</strong></li>
+        <li>Source IP ranges: <strong>0.0.0.0/0</strong></li>
+        <li>Protocols and ports: Click on checkbox: &#34;<strong>tcp</strong>&#34; and in entry box type: &#34;<strong>3000</strong>&#34;</li>
+        <li>Click <strong>CREATE button</strong></li>
+        <img class="firewall2" src="images/firewall2.png">
+      </ol>
+
+    </div>
+
+        <h2>Step 4</h2>
+        <h3>Running the server</h3>
+        <div class="step4">
+      <ol>
+        <li>Back in the GNU Bash Shell run the server with the following command: (if still in the mongo db type <strong>exit</strong></li>
+          <code>&#160;- node app.js</code>
+        <li>If you see this you’re good</li>
+        <img class="node" src="images/running.png">
+        <li>Back in the Google Cloud Platform go to: </li>
+        <li>Compute Engine 
+        <li>Click on VM instances: </li>
+        <li>Type the External IP address into the URL bar,<strong> removing</strong> the &#34;<strong>s</strong>&#34; from &#34;<strong>https</strong>&#34; and adding &#34;<strong>:3000</strong>&#34; to the end </li>
+        <li>Example:<strong> http://34.82.213.84:3000</strong></li>
+        </ol>
+      </div>
+      
+
+        <footer>
+          <table>
+            <tr>
+              <th>Joseph VanSandt</th> 
+              <th class="1">jvansandt6688@gmail.com</th>
+            </tr> 
+            <tr>
+              <th> Rodrigo Palop </th></th>
+              <th class="1">ropalop@gmail.com</th></th>
+            </tr>
+            <tr>
+              <th>Julie Suong </th>
+              <th class="1">julie.suong@gmail.com</th>
+            </tr>
+            <tr>
+              <th>Jesus Rodriguez </th>
+              <th class="1">manuelrodriguezc29@gmail.com</th>
+            </tr>
+          </table>
+          
+          <table>
+            <tr>
+              <th>Michael Hansen</th> 
+              <th class="1">mmhansen@gmail.com</th>
+            </tr>
+            <tr>
+              <th>Barbara Pronsato </th>
+              <th class="1">barbara.pronsato@gmail.com</th>
+               </tr>
+            <tr>
+              <th>Sulekha Abdullahi </th>
+              <th class="1">sulekha871@gmail.com</th>
+            </tr>
+            <tr>
+              <th>Abdirizak Ali (Zak)</th>
+              <th class="1">abdirizakali1234@gmail.com</th> 
+              </tr>
+          </table>
+             
+             
+        </footer>
+ </body>
+</html>
