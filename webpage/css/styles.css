@@ -8,7 +8,7 @@
 	font-family: 'retro';
 	src: url('../fonts/PressStart2P-vaV7.ttf');
 }
-h1, h2, h3, p, nav a {
+h1, h2, h3, p, nav a, footer a {
     /*font-family: Georgia, "Times New Roman", serif;*/
 	font-family: retro;
 }
@@ -194,7 +194,7 @@ h4 {
 	margin-left: 1em;
 }
 footer {
-	color: white;
+	color: #DDDDDD;
 	text-align: center;
 	display: inline-flex;
 	width: 100%;
@@ -203,11 +203,31 @@ footer {
 	background-size: auto 100%;
 	background-color: #ADD8E6;
 	padding-top: 35px;
+	margin-bottom: 15px;
+	text-shadow: 0px 0px 2px black;
 }
 footer ul {
+	margin-bottom: 5px;
 }
 footer li {
 	list-style-type: none;
+}
+footer ul:nth-child(1) {
+	text-align: left;
+}
+footer ul:nth-child(3) {
+	text-align: right;
+}
+footer a {
+	color: #DDDDDD;
+	text-decoration: none;
+}
+footer img {
+	opacity: 0;
+	
+}
+footer li:hover img{
+	opacity: 1;
 }
 
 .gif {
