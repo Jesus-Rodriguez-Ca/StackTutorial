@@ -8,7 +8,7 @@
 	font-family: 'retro';
 	src: url('../fonts/PressStart2P-vaV7.ttf');
 }
-h1, h2, h3, p, nav a, footer a {
+h1, h2, h3, p, nav a {
     /*font-family: Georgia, "Times New Roman", serif;*/
 	font-family: retro;
 }
@@ -215,8 +215,12 @@ footer li {
 footer ul:nth-child(1) {
 	text-align: left;
 }
+footer ul:nth-child(2) {
+	font-family: 'retro';
+}
 footer ul:nth-child(3) {
 	text-align: right;
+	text-decoration: none;
 }
 footer a {
 	color: #DDDDDD;
