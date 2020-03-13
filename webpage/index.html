@@ -38,54 +38,54 @@
             <main>
                 <h3 class="anchor" id="step1">Set up Ubuntu on Google Cloud</h3>
                 <ol>
-                <li><a href="https://cloud.google.com" alt="google cloud link">Click here</a> to visit the Google Cloud console page</li>
-                <li>Create an account</li>
-                <li>On the bottom right look for the link called <em>Console</em>.</li>
-                <li>On the top nav bar, select <em>Project</em></li>
-                <li>In the nav bar on the left find <em>Compute Engine</em>.</li>
-                <li>Once you there select <em>VM Instance</em></li>
-                <li>Then <em>Create</em></li>
-                <li>Name the instance</li>
-                <li>Select your <em>Region</em></li>
-                <li>Change the <em>Machine type</em> to <em>f1-micro</em></li>
-                <li>For <em>Bootdisk</em> click <em>Change</em> &rsaquo; select <em>Ubuntu</em> for OS and <em>Ubuntu 18.04 LTS</em> &rsaquo; Click <em>Select</em></li>
-                <li>For <em>Firewall</em> select <em>Allow HTTP Traffic</em> and <em>Allow HTTPS Traffic</em></li>
-                <li>Then hit <em>Create</em> and wait for the green circle with white checkmark to indicate your instance is running</li>
-                <li>Click <em>SSH</em> to the right of the instance that you want to use, keep in mind it will take some time to load</li>
-                <li>Continue to <a href="#step2">Node.js</a> to begin installing your stack on this cloud server</li>
+                <li><a href="https://cloud.google.com" alt="google cloud link">Click here</a> to visit the Google Cloud console page.</li>
+                <li>Create an account.</li>
+                <li>On the bottom right, look for the link called <em>Console</em>.</li>
+                <li>On the top navgation bar, select <em>Project</em>.</li>
+                <li>In the navigation bar on the left, find <em>Compute Engine</em>.</li>
+                <li>Once you are there, select <em>VM Instance</em>.</li>
+                <li>Then <em>Create</em>.</li>
+                <li>Name the instance.</li>
+                <li>Select your <em>Region</em>.</li>
+                <li>Change the <em>Machine type</em> to <em>f1-micro</em>.</li>
+                <li>For <em>Bootdisk</em>, click <em>Change</em> &rsaquo; select <em>Ubuntu</em> for OS and <em>Ubuntu 18.04 LTS</em> &rsaquo; Click <em>Select</em>.</li>
+                <li>For <em>Firewall</em>, select <em>Allow HTTP Traffic</em> and <em>Allow HTTPS Traffic</em>.</li>
+                <li>Then hit <em>Create</em>, and wait for the green circle with a white checkmark to indicate your instance is running.</li>
+                <li>Click <em>SSH</em> to the right of the instance that you want to use, keeping in mind that it will take some time to load.</li>
+                <li>Continue to <a href="#step2">Node.js</a> to begin installing your stack on this cloud server.</li>
                 </ol>
                                 
 				<h2>Stack Installation</h2>
 				
                 <h3 class="anchor" id="step2">Installing Node.js</h3>
-                <ol><li>To install Node.js, paste the following commands then press 'Enter', starting with;</li>
+                <ol><li>To install Node.js, paste the following commands, then press 'Enter', starting with:</li>
                 <pre><code>sudo apt-get update</code></pre>
-					<li>Then use this command;</li>
+					<li>Then use this command:</li>
                 <pre><code>sudo apt-get install -y curl apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_10.x && sudo bash setup-nodejs && sudo apt-get install -y nodejs build-essential</code></pre>
                 </ol>
 				
                 <h3 class="anchor" id="step3">Installing Angular.js</h3>
-                <ol><li>Paste the following command then press 'Enter'</li>
+                <ol><li>Paste the following command then press 'Enter':</li>
                 <pre><code>sudo -i npm install -g @angular/cli</code></pre>
-                <li>Type 'Y' or 'N' and press 'Enter' when asked to share data with Google (makes no difference for this tutorial)</li>
+                <li>Type 'Y' or 'N', and press 'Enter' when asked to share data with Google (makes no difference for this tutorial).</li>
 				</ol>
                 
                 <h3 class="anchor" id="step4">Installing Express</h3>
-                <ol><li>Create a directory called “mean-stack”</li>
+                <ol><li>Create a directory called “mean-stack”:</li>
                 <pre><code>mkdir mean-stack</code></pre>
-					<li>Then change the directory to helloworld</li>
+					<li>Then, change the directory to "helloworld":</li>
 					<pre><code>cd mean-stack</code></pre>
-                <li>After that, initialize your node files and your package.json</li>
+                <li>After that, initialize your node files and your package.json:</li>
 					<pre><code>npm init</code></pre>
-					<li>Press 'Enter' to skip each of the following 3 prompts; package name, version, and description</li>
-					<li>When asked for the “entry point” enter the following;</li>
+					<li>Press 'Enter' to skip each of the following 3 prompts: package name, version, and description.</li>
+					<li>When asked for the “entry point”, enter the following:</li>
 					<pre><code>app.js</code></pre>
-					<li>Press 'Enter' to skip each of the folling 6 prompts; test command, git repository, keywords, author, license (ISC), Is this OK? (yes)</li>
+					<li>Press 'Enter' to skip each of the folling 6 prompts: test command, git repository, keywords, author, license (ISC), Is this OK? (yes)</li>
 					<li>Run express.js in your project and directory</li>
 					<pre><code>npm install express --save</code></pre>
-					<li>Finally, open the nano text editor:</li>
+					<li>Finally, open app.js in the nano text editor:</li>
 					<pre><code>nano app.js</code></pre>
-					<li>Once you’re in nano copy and paste this below</li>
+					<li>Once you’re in nano, copy and paste this, below:</li>
 					<code class="prettyprint">
 						var express = require('express');<br>
 						var app = express();<br>
@@ -96,21 +96,21 @@
 						console.log('Example app listening on port 3000!');<br>
 						});
 					</code>
-					<li>To exit the nano, hit CTRL+X, then press 'Y' and hit 'Enter'</li>
+					<li>To exit the nano editor, hit CTRL+X, then press 'Y', and hit 'Enter'.</li>
 				</ol>
                 
 				<h3 class="anchor" id="step5">Installing MongoDB</h3>
-				<ol><li>Install MongoDB packages</li>
+				<ol><li>Install the MongoDB package:</li>
 				<pre><code>sudo apt install -y mongodb</code></pre>
-				<li>Run MongoDB</li>
+				<li>Run MongoDB:</li>
 					<pre><code>sudo systemctl start mongodb</code></pre>
-					<li>To begin using mongo shell</li>
+					<li>To begin using the MongoDB shell:</li>
 					<pre><code>mongo</code></pre>
-					<li>To create and switch to a new collection named “mean-stack-db”:</li>
+					<li>To create, and switch to, a new collection named “mean-stack-db”:</li>
 					<pre><code>use mean-stack-db</code></pre>
-					<li>To populate the collection you use the function</li>
+					<li>To populate the collection, you use the following function:</li>
 					<pre><code>db.inventory.insertMany();</code></pre>
-					<li>Inside the function you must enter data in the JSON format, for instance;</li>
+					<li>Inside the function, you must enter data in the JSON format, for instance:</li>
 					<code class="prettyprint">db.inventory.insertMany( [<br>
 { "item": "journal", "qty": 25, "size": { "h": 14, "w": 21, "uom": "cm" }, "status": "A" },<br>
 { "item": "notebook", "qty": 50, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "A" },<br>
@@ -118,19 +118,19 @@
 { "item": "planner", "qty": 75, "size": { "h": 22.85, "w": 30, "uom": "cm" }, "status": "D" },<br>
 { "item": "postcard", "qty": 45, "size": { "h": 10, "w": 15.25, "uom": "cm" }, "status": "A" }<br>
 ]);</code>
-					<li>Finally you can search stuff inside your database by creating queries. For instance;</li>
+					<li>Finally, you can search stuff inside your database by creating queries. For instance:</li>
 					<pre><code>db.inventory.find( { status: "D" } )</code></pre>
 				</ol>
 				
 				<h3>Firewall Rules</h3>
 				<ol>
-				<li>From the command line enter</li>
+				<li>From the VM instance command line, enter:</li>
 				<pre><code>sudo iptables -I INPUT -p tcp --dport 3000 -j ACCEPT</code></pre></ol>
 				<h4>OR</h4>
 				<ol>
-				<li>Back in the Google Cloud console search <em>Firewall</em> in the search bar</li>
-				<li>Select <em>Firewall rules</em> from the results</li>
-				<li>Click on <em>Create Firewall Rule</em></li>
+				<li>Back in the Google Cloud console, search for <em>Firewall</em> in the search bar.</li>
+				<li>Select <em>Firewall rules</em> from the results.</li>
+				<li>Click on <em>Create Firewall Rule:</em></li>
 					<ul>
 					<li><strong>Name:</strong> <em>firewall-port-3000</em></li>
 					<li><strong>Description:</strong> <em>Open port 3000</em></li>
@@ -138,31 +138,31 @@
 					<li><strong>Source IP ranges:</strong> <em>0.0.0.0/0</em></li>
 					<li><strong>Protocols and ports:</strong> Click on checkbox: <em>tcp</em> and in entry box type: <em>3000</em></li>
 					</ul>
-				<li>Click <em>CREATE</em> button</li></ol>
+				<li>Click <em>CREATE</em> button.</li></ol>
 				<h3>Running the Server</h3>
 				<ol>
-				<li>Back in the GNU Bash Shell run the server with the following command: (if still in the mongo db type exit</li>
+				<li>Back in the GNU Bash Shell, run the server with the following command: (if still in the MongoDB shell, type exit.)</li>
 				<pre><code>node app.js</code></pre>
-				<li>The console should say the app is "listening on port 3000"</li>
-				<li>Back in the Google Cloud console go to 
-				<em>Compute Engine</em> </li>
-				<li>Click on <em>VM instances</em></li>
-				<li>Type the External IP address into the URL bar, removing the “s” from “https” and adding “:3000” to the end:</li>
-					<ul><li><strong>Example:</strong> http://34.82.213.84:3000</li></ul>
+				<li>The console should say the app is "listening on port 3000".</li>
+				<li>Back in the Google Cloud console, go to 
+				<em>Compute Engine</em>.</li>
+				<li>Click on <em>VM instances</em>.</li>
+				<li>Type the external IP address into the URL bar, removing the “s” from “https” and adding “:3000” to the end:</li>
+					<ul><li><strong>Example:</strong> http://34.82.213.84:3000/</li></ul>
 				</ol>
 				
 				<h2>Install a Sample Application</h2>
 				<h3 class="anchor" id="app">Search Bar App</h3>
 				<ol>
-				<li>Go back to the VM shell</li>
-				<li>Go to the working directory (mean-stack)</li>
-					<pre><code>cd</code></pre>
-				<li>Next you will be using the same nano command from before to create and edit files</li>
-				<li>Edit the <em>app.js</em> file inside the working directory</li>
+				<li>Go back to the VM shell.</li>
+				<li>Go to the working directory (mean-stack):</li>
+					<pre><code>cd mean-stack</code></pre>
+				<li>Next, you will be using the same nano commands from before to create and edit files.</li>
+				<li>Edit the <em>app.js</em> file inside the working directory:</li>
 					<pre><code>nano app.js</code></pre>
 					<ol>
 				<li>Inside the editor, delete everything using the 'DEL' key.</li>
-				<li>Copy and paste the below code into the command shell</li>
+				<li>Copy and paste the below code into the command shell:</li>
 					<code class="prettyprint">// app.js<br>
 					<br>
 					// modules =================================================<br>
@@ -192,11 +192,11 @@
 					// expose app<br>
 					exports = module.exports = app;<br>
 					</code>
-				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+				<li>Use 'CTRL+X' to exit, press 'Y' to save, and 'ENTER' to confirm.</li>
 					</ol>
 				<li>Create a file called routes.js inside the working directory:</li>
 					<pre><code>nano routes.js</code></pre>
-				<li>Copy and paste the below code into the command shell</li>
+				<li>Copy and paste the below code into the command shell:</li>
 					<code class="prettyprint">
 					// routes.js<br>
 					<br>
@@ -206,15 +206,15 @@
 					});<br>
 					};
 					</code>
-				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+				<li>Use 'CTRL+X' to exit, press 'Y' to save, and 'ENTER' to confirm.</li>
 					
-				<li>Create a subdirectory for your files</li>
+				<li>Create a subdirectory for your files:</li>
 					<pre><code>mkdir views</code></pre>
-				<li>Navigate to the subdirectory</li>
+				<li>Navigate to the subdirectory:</li>
 					<pre><code>cd views</code></pre>
-				<li>Create an index page within your new directory</li>
+				<li>Create an index page within your new directory:</li>
 					<pre><code>nano index.html</code></pre>
-				<li>Copy and paste the below code into the command shell</li>
+				<li>Copy and paste the below code into the command shell:</li>
 					<code class="prettyprint">
 					&lt;!-- views/index.html --&gt;<br>
 					<br>
@@ -245,15 +245,15 @@
 					&lt;/html&gt;<br>
 					</code>
 					
-				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+				<li>Use 'CTRL+X' to exit, press 'Y' to save, and 'ENTER' to confirm.</li>
 
-				<li>Create another subdirectory for css styling</li>
+				<li>Create another subdirectory for CSS styling:</li>
 					<pre><code>mkdir css</code></pre>
-				<li>Navigate to the new css subdirectory</li>
+				<li>Navigate to the new CSS subdirectory:</li>
 					<pre><code>cd css</code></pre>
-				<li>Create the css file inside that subdirectory</li>
+				<li>Create the CSS file inside that subdirectory:</li>
 					<pre><code>nano style.css</code></pre>
-				<li>Copy and paste the below code into the command shell</li>
+				<li>Copy and paste the below code into the command shell:</li>
 					<code class="prettyprint">
 					/* views/css/style.css */<br>
 <br>
@@ -423,13 +423,13 @@
 					}<br>
 
 					</code>
-				<li>Use 'CTRL+X' to exit, press 'Y' to save and 'ENTER' to confirm</li>
+				<li>Use 'CTRL+X' to exit, press 'Y' to save, and 'ENTER' to confirm.</li>
 
-				<li>Move up two directories to your main folder</li>
+				<li>Move up two directories to your main folder:</li>
 					<pre><code>cd ../..</code></pre>
-				<li>Launch the server</li>
+				<li>Launch the server:</li>
 					<pre><code>node app.js</code></pre>
-				<li>With this you will have a search bar app in your web server that you can play around with. Enjoy!</li>
+				<li>With this, you will have a search bar app in your web server that you can play around with. Enjoy!</li>
 				</ol>
             </main>
             
