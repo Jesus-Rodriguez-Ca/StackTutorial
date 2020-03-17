@@ -39,7 +39,10 @@
     if ps ax | grep node | grep -v grep | awk '{print $5}' > /dev/null
 	then
 		echo "The Node.js app is running." >> $HOME/log/stackmon.log
+		logger -p 6 The Node.js app is running.
 	else
+		
+		echo "The Node.js app is NOT running." >> $HOME/log/stackmon.log
 		echo "The Node.js app is NOT running." | wall -n
 		logger -p 0 The Node.js app is NOT running.
 	fi
