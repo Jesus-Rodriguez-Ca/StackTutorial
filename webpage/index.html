@@ -76,13 +76,13 @@
 					<li>Then, change the directory to "helloworld":</li>
 					<pre><code>cd mean-stack</code></pre>
                 <li>After that, initialize your node files and your package.json:</li>
-					<pre><code>npm init</code></pre>
+					<pre><code>sudo npm init</code></pre>
 					<li>Press 'Enter' to skip each of the following 3 prompts: package name, version, and description.</li>
 					<li>When asked for the “entry point”, enter the following:</li>
 					<pre><code>app.js</code></pre>
 					<li>Press 'Enter' to skip each of the folling 6 prompts: test command, git repository, keywords, author, license (ISC), Is this OK? (yes)</li>
 					<li>Run express.js in your project and directory</li>
-					<pre><code>npm install express --save</code></pre>
+					<pre><code>sudo npm install express --save</code></pre>
 					<li>Finally, open app.js in the nano text editor:</li>
 					<pre><code>nano app.js</code></pre>
 					<li>Once you’re in nano, copy and paste this, below:</li>
@@ -124,17 +124,17 @@
 				
 				<h3>Firewall Rules</h3>
 				<ol>
-				<li>From the VM instance command line, enter:</li>
+				<li>Exit from the mongo shell with "exit", then, from the VM instance command line, enter:</li>
 				<pre><code>sudo iptables -I INPUT -p tcp --dport 3000 -j ACCEPT</code></pre></ol>
-				<h4>OR</h4>
+				<h4>THEN:</h4>
 				<ol>
 				<li>Back in the Google Cloud console, search for <em>Firewall</em> in the search bar.</li>
-				<li>Select <em>Firewall rules</em> from the results.</li>
+				<li>Select <em>Firewall rules (VPC network)</em> from the results.</li>
 				<li>Click on <em>Create Firewall Rule:</em></li>
 					<ul>
 					<li><strong>Name:</strong> <em>firewall-port-3000</em></li>
 					<li><strong>Description:</strong> <em>Open port 3000</em></li>
-					<li><strong>Targets:</strong> <em>All instance in the network</em></li>
+					<li><strong>Targets:</strong> <em>All instances in the network</em></li>
 					<li><strong>Source IP ranges:</strong> <em>0.0.0.0/0</em></li>
 					<li><strong>Protocols and ports:</strong> Click on checkbox: <em>tcp</em> and in entry box type: <em>3000</em></li>
 					</ul>
