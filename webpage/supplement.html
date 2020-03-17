@@ -10,9 +10,7 @@
   
   <h3>Shell Script</h3>
   
-  <p>The first task in making a monitoring script is to create a directory for executable
-  files, and a directory for local copies of logs. By convention, scripts and user-compiled
-  binaries go in the /bin subdirectory of the user's home directory:</p>
+  <p>The first task in making a monitoring script is to create a directory for executable files, and a directory for local copies of logs. By convention, scripts and user-compiled binaries go in the /bin subdirectory of the user's home directory:</p>
   
   <pre>mkdir $HOME/bin/</pre>
   
@@ -28,8 +26,7 @@
   
   <pre>chmod +x stackmon.sh</pre>
   
-  <p>Finally, open stackmon.sh in ed(1), the standard Unix&trade; editor, type a single lowercase
-"a", then press Enter, to enter append mode, and type the following:</p>
+  <p>Finally, open stackmon.sh in ed(1), the standard Unix&trade; editor, type a single lowercase "a", then press Enter, to enter append mode, and type the following:</p>
   
   <pre>
 	#!/bin/sh
@@ -42,21 +39,23 @@
 	then
 		echo "The Node.js app is running." >> $HOME/log/stackmon.log
 	else
-		echo "The Node.js app is NOT running." >> $HOME/log/stackmon.log
 		echo "The Node.js app is NOT running." | wall -n
+		logger -p 0 The Node.js app is NOT running.
 	fi
 
   </pre>
   
-  <p>To stop entering text, type a single "." on a blank line, then press Enter. Type a lowercase "w"
-  followed by the Enter key to save, then a lowercase "q" to quit.</p>
+  <p>To stop entering text, type a single "." on a blank line, then press Enter. Type a lowercase "w" followed by the Enter key to save, then a lowercase "q" to quit.</p>
   
   
   <h3>Cron</h3>
   
   <p>To make the monitoring script run automatically via cron, we need to add a crontab entry:</p>
   <pre>crontab -e</pre>
+  <p>Add the following line to your crontab to run the monitoring script every five minutes:</p>
   <pre>0/5 * * * * $HOME/bin/stackmon.sh</pre>
-  
+
+ <a href="https://jesus-rodriguez-ca.github.io/StackTutorial/webpage/index.html">Return to the MEAN Stack tutorial</a> 
+
 </BODY>
 </HTML>
