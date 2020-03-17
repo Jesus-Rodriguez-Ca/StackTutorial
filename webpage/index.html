@@ -124,17 +124,17 @@
 				
 				<h3>Firewall Rules</h3>
 				<ol>
-				<li>From the VM instance command line, enter:</li>
+				<li>Exit from the mongo shell with "exit", then, from the VM instance command line, enter:</li>
 				<pre><code>sudo iptables -I INPUT -p tcp --dport 3000 -j ACCEPT</code></pre></ol>
-				<h4>OR</h4>
+				<h4>THEN:</h4>
 				<ol>
 				<li>Back in the Google Cloud console, search for <em>Firewall</em> in the search bar.</li>
-				<li>Select <em>Firewall rules</em> from the results.</li>
+				<li>Select <em>Firewall rules (VPC network)</em> from the results.</li>
 				<li>Click on <em>Create Firewall Rule:</em></li>
 					<ul>
 					<li><strong>Name:</strong> <em>firewall-port-3000</em></li>
 					<li><strong>Description:</strong> <em>Open port 3000</em></li>
-					<li><strong>Targets:</strong> <em>All instance in the network</em></li>
+					<li><strong>Targets:</strong> <em>All instances in the network</em></li>
 					<li><strong>Source IP ranges:</strong> <em>0.0.0.0/0</em></li>
 					<li><strong>Protocols and ports:</strong> Click on checkbox: <em>tcp</em> and in entry box type: <em>3000</em></li>
 					</ul>
