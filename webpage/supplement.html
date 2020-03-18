@@ -68,6 +68,10 @@
   <pre>0/5 * * * * $HOME/bin/stackmon.sh</pre>
   <p>Again, press Enter at least twice, followed by a single "." on a blank line to leave append mode. Use a single "w", then Enter, to write the file to disk, then a single "q", follwed by Enter, to quit.</p>
 
+  <p>Unfortunately, some current Linux distributions seem to have a broken implementation of cron that won't accept fractional time increments, probably due to Lennart Poettering and the systemd team. On these systems, we'll have to settle for running our monitoring script once per hour:</p>
+
+  <pre>0 * * * * $HOME/bin/stackmon.sh</pre>
+
  <a href="https://jesus-rodriguez-ca.github.io/StackTutorial/webpage/index.html">Return to the MEAN Stack tutorial</a> 
 
 </BODY>
