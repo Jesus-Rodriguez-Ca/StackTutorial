@@ -43,6 +43,7 @@
     if ps ax | grep node | grep -v grep | awk '{print $5}' > /dev/null
 	then
 		echo "The Node.js app is running." >> $HOME/log/stackmon.log
+		echo "The Node.js app is running." | wall -n
 		logger -p 6 The Node.js app is running.
 	else
 		
@@ -60,8 +61,12 @@
   
   <p>To make the monitoring script run automatically via cron, we need to add a crontab entry:</p>
   <pre>crontab -e</pre>
+  <p>Since you now know how to use ed(1), choose option 4, and press Enter.</p>
+  <p>Go to the last line in the file by typing "$", followed by the Enter key.</p>
+  <p>As before, enter append mode with a lowercase "a", followed by the Enter key. This time, make sure you insert a blank line BEFORE pasting in the text, since append will start at the end of the last line of existing text.</p>
   <p>Add the following line to your crontab to run the monitoring script every five minutes:</p>
   <pre>0/5 * * * * $HOME/bin/stackmon.sh</pre>
+  <p>Again, press Enter at least twice, followed by a single "." on a blank line to leave append mode. Use a single "w", then Enter, to write the file to disk, then a single "q", follwed by Enter, to quit.</p>
 
  <a href="https://jesus-rodriguez-ca.github.io/StackTutorial/webpage/index.html">Return to the MEAN Stack tutorial</a> 
 
